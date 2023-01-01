@@ -14,6 +14,7 @@ class Transaction:
     def add_item(self, item_name, qty, item_price):
         if validate_add_item(item_name, qty, item_price):
             self.items[item_name] = {"qty": qty, "item_price": item_price, "total_item_price": qty * item_price}
+            print(f"Item yang dibeli adalah {item_name} sebanyak {qty} dengan harga Rp {item_price} \n")
             self.check_order()
 
     def update_item_name(self, item_name, new_item_name):
@@ -29,6 +30,7 @@ class Transaction:
         try:
             if validate_update_item_qty(item_name, new_qty):
                 self.items[item_name]['qty'] = new_qty
+                self.calculate_total_price()
         except KeyError:
             print(f"Oops! Tidak ada item {item_name} di keranjang")
         
@@ -38,6 +40,7 @@ class Transaction:
         try:
             if validate_update_item_price(item_name, new_price):
                 self.items[item_name]['item_price'] = new_price
+                self.calculate_total_price()
         except KeyError:
             print(f"Oops! Tidak ada item {item_name} di keranjang")
         
@@ -88,10 +91,10 @@ class Transaction:
         print("Semua item berhasil didelete!")
 
     def calculate_total_price(self):
-        for key, value in self.items.items():
+        for key, _ in self.items.items():
             self.total_price += self.items[key]["total_item_price"]
+            self.items[key]["total_item_price"] = self.items[key]["qty"] * self.items[key]["item_price"]
         
-
         self.calculate_discount()
 
     def calculate_discount(self):
