@@ -1,5 +1,10 @@
 import pandas as pd
-
+from validator import (
+    validate_add_item, 
+    validate_update_item_name, 
+    validate_update_item_qty, 
+    validate_update_item_price
+)
 class Transaction:
     def __init__(self):
         self.items = {}
@@ -7,32 +12,35 @@ class Transaction:
         self.discount = 0
 
     def add_item(self, item_name, qty, item_price):
-        self.items[item_name] = {"qty": qty, "item_price": item_price, "total_item_price": qty * item_price}
-
-        self.check_order()
+        if validate_add_item(item_name, qty, item_price):
+            self.items[item_name] = {"qty": qty, "item_price": item_price, "total_item_price": qty * item_price}
+            self.check_order()
 
     def update_item_name(self, item_name, new_item_name):
         try:
-            self.items[new_item_name] = self.items.pop(item_name)
+            if validate_update_item_name(item_name, new_item_name):
+                self.items[new_item_name] = self.items.pop(item_name)
         except KeyError:
             print(f"Oops! Tidak ada item {item_name} di keranjang")
-
+            
         self.check_order()
 
     def update_item_qty(self, item_name, new_qty):
         try:
-            self.items[item_name]['qty'] = new_qty
+            if validate_update_item_qty(item_name, new_qty):
+                self.items[item_name]['qty'] = new_qty
         except KeyError:
             print(f"Oops! Tidak ada item {item_name} di keranjang")
-
+        
         self.check_order()
 
     def update_item_price(self, item_name, new_price):
         try:
-            self.items[item_name]['item_price'] = new_price
+            if validate_update_item_price(item_name, new_price):
+                self.items[item_name]['item_price'] = new_price
         except KeyError:
             print(f"Oops! Tidak ada item {item_name} di keranjang")
-
+        
         self.check_order()
 
     def delete_item(self, item_name):
@@ -40,15 +48,15 @@ class Transaction:
             del self.items[item_name]
         except KeyError:
             print(f"Oops! Tidak ada item {item_name} di keranjang")
-
+        
         self.check_order()
 
     def check_order(self):
-        name = []
-        qty = []
-        item_price = []
-        total_item_price = []
-
+        name=[]
+        qty=[]
+        item_price=[]
+        total_item_price=[]
+        
         for k, _ in self.items.items():
             name.append(k)
             qty.append(self.items[k]['qty'])
@@ -56,17 +64,17 @@ class Transaction:
             total_item_price.append(self.items[k]['total_item_price'])
 
         data = {
-            'Nama Item': name,
-            'Qty': qty,
-            'Harga per item': item_price,
-            'Total harga item': total_item_price
-        }
-
+        'Nama Item':name,
+        'Qty':qty,
+        'Harga per item':item_price,
+        'Total harga item':total_item_price
+       }
+        
         trx_df = pd.DataFrame(data)
         trx_df.index += 1
-
+ 
         print(trx_df[['Nama Item', 'Qty', 'Harga per item', 'Total harga item']])
-
+        
     def total_price_print(self):
         self.calculate_total_price()
         self.check_order()
@@ -82,6 +90,7 @@ class Transaction:
     def calculate_total_price(self):
         for key, value in self.items.items():
             self.total_price += self.items[key]["total_item_price"]
+        
 
         self.calculate_discount()
 
