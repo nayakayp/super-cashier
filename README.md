@@ -41,7 +41,12 @@ Semua fungsi berikut terdapat di dalam class bernama `Transaction` pada file `ma
 	1. Jika di atas Rp 200.000 diskon sebesar 5%
 	2. Jika di atas Rp 300.000 diskon sebesar 8%
 	3. Jika di atas Rp 500.000 diskon sebesar 10%
-- `find_items_index`. Mencari ada di index ke berapa sebuah nama barang pada barang-barang yang sudah ditambahkan.
+
+#### Modul
+- `validate_add_item`. Validasi sebelum item ditambahkan. Meliputi format penulisan dan harga barang/qty tidak boleh negatif.
+- `validate_update_item_name`. Validasi sebelum item diganti namanya. Meliputi format penulisan nama item baru dan nama item lama.
+- `validate_update_item_qty`. Validasi sebelum qty item diupdate. Meliputi format penulisan dan qty tidak boleh negatif.
+- `validate_update_item_price`. Validasi sebelum harga item diupdate. Meliputi format penulisan dan harga tidak boleh negatif.
 
 ## Demonstrasi Code
 Membuat Customer1 dengan code `Customer1 = Transaction()`
@@ -53,8 +58,8 @@ Customer ingin menambahkan dua item baru menggunakan method `add_item()`. Item y
 - Nama Item: Pasta Gigi, Qty: 3, Harga: 15000
 
 **Output:**
-![af6367f8-fc1b-4812-8737-61371bd02cab](https://user-images.githubusercontent.com/24706517/210150963-e800e75a-c65e-4387-816d-628d746e6045.png)
-![88d2953e-9810-44fd-8079-f9ccbdf82d5e](https://user-images.githubusercontent.com/24706517/210150970-996887d5-7136-4b6a-a874-3aad202ece9b.png)
+![6d594746-c5e6-414f-8357-fae10ef5187a](https://user-images.githubusercontent.com/24706517/210166197-f7d170f6-aae2-499d-b6bf-63bfc65b0c35.png)
+![1b8948eb-ac69-4593-91d6-39a6a10d5b4a](https://user-images.githubusercontent.com/24706517/210166208-3c0358f9-60c4-4207-abf5-16879a89f7b9.png)
 
 
 ### Test 2: delete_item()
@@ -77,9 +82,10 @@ Setelah Customer selesai berbelanja, akan menghitung total belanja yang harus di
 - Nama Item: Pasta Gigi, Qty: 3, Harga: 15000
 
 **Output:**
-![af6367f8-fc1b-4812-8737-61371bd02cab](https://user-images.githubusercontent.com/24706517/210151020-c3fa620b-f6ad-4daa-8585-ca674e7bf5ab.png)
-![88d2953e-9810-44fd-8079-f9ccbdf82d5e](https://user-images.githubusercontent.com/24706517/210151025-119c5f17-9b46-4753-9791-073efe76f673.png)
-![b0120508-12f2-4a94-a756-8b575d4fc43c](https://user-images.githubusercontent.com/24706517/210151035-85c815ce-e420-4000-8891-e1407219fa50.png)
+![63a730b1-a5b8-4e7e-88f3-d3a3aa8e5bac](https://user-images.githubusercontent.com/24706517/210166274-41cacc23-09e7-451c-bf09-355c6d6c6c83.png)
+![9faf5655-d056-413f-b701-a510c254824c](https://user-images.githubusercontent.com/24706517/210166275-8dccabfb-6689-4b44-b3a2-85dacb7fb000.png)
+![f8030d9c-a799-409a-b259-1cc4f6b98aa9](https://user-images.githubusercontent.com/24706517/210166276-a28641ed-7004-44d5-be9a-00e9b1d9798a.png)
+
 
 
 ### Test 5: update_item_name()
@@ -88,26 +94,26 @@ Item yang ditambahkan adalah sebagai berikut:
 Customer ingin mengganti nama **Ayam Goreng** yang terlanjur ditambahkan menggunakan metode `update_item_name()` sehingga nama item tersebut menjadi **Ayam Goreng Balado**
 
 **Output:**
-![f97c103c-8ef9-4151-bb91-f0433c0b7d87](https://user-images.githubusercontent.com/24706517/210151089-3ff9bcd4-6b70-4eeb-a132-8516163b8d73.png)
+![75c37fed-c122-4270-b09e-f4a9877f657a](https://user-images.githubusercontent.com/24706517/210166311-c87cef71-d664-4ac7-8de0-2410c782c0be.png)
 _Setelah nama diupdate_
-![aa4e06d1-295b-4094-ad3f-3b1d522b8d10](https://user-images.githubusercontent.com/24706517/210151096-a6526741-3654-48ed-8f8b-03592630462a.png)
+![e41d9ffc-480d-4637-a68a-5877ef56000a](https://user-images.githubusercontent.com/24706517/210166313-302e0226-422e-4dd5-aa43-7b09325b1ca7.png)
 
 
 ### Test 6: update_item_qty()
 Customer ingin mengganti Quantity dari **Ayam Goreng Balado** yang sebelumnya 2 buah menjadi 10 buah dengan metode `update_item_qty()`
 
 **Output:**
-![3a2f22d7-7f76-4bf0-8ef9-886f9d411e75](https://user-images.githubusercontent.com/24706517/210151107-ad15c629-ee50-4117-81b1-71a114647466.png)
+![image](https://user-images.githubusercontent.com/24706517/210166894-34972f6a-d3f7-4dad-a940-9c75bd198628.png)
 _Setelah qty diupdate_
-![df029b88-1602-440c-85b8-567e5a8f6724](https://user-images.githubusercontent.com/24706517/210151112-0cdbbe87-1dad-491e-8add-1dc2558a3ee7.png)
+![image](https://user-images.githubusercontent.com/24706517/210166907-b0fd9a26-e577-459d-a4f0-2de72bb8ae1b.png)
 
 ### Test 7: update_item_price()
 Customer ingin mengganti harga per item dari **Ayam Goreng Balado** yang sebelumnya 20000 menjadi 25000 per item-nya dengan metode `update_item_price()`.
 
 **Output**:
-![df029b88-1602-440c-85b8-567e5a8f6724](https://user-images.githubusercontent.com/24706517/210151119-8ff07d98-9a3e-4898-8c3d-340e39dc7226.png)
+![image](https://user-images.githubusercontent.com/24706517/210166936-a67c7892-0700-4dda-a43b-7e1be2b4abd4.png)
 _Setelah harga diupdate_
-![21169f22-9f74-4902-a162-dc2d7ddb1a69](https://user-images.githubusercontent.com/24706517/210151124-e7e08787-210d-4372-a462-c21b977b6e17.png)
+![image](https://user-images.githubusercontent.com/24706517/210166949-012bd4f0-00cf-4a14-870f-2fe5163c9f66.png)
 
 
 ## Kesimpulan
