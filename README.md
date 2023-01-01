@@ -115,6 +115,25 @@ Customer ingin mengganti harga per item dari **Ayam Goreng Balado** yang sebelum
 _Setelah harga diupdate_
 ![image](https://user-images.githubusercontent.com/24706517/210166949-012bd4f0-00cf-4a14-870f-2fe5163c9f66.png)
 
+### Test 8: Validasi sebelum menambahkan item
+![image](https://user-images.githubusercontent.com/24706517/210167540-0839e7b0-4550-4486-8fb4-259598ad7952.png)
+![image](https://user-images.githubusercontent.com/24706517/210167544-32f469cf-1dc1-4651-b731-c267a6d60235.png)
+![image](https://user-images.githubusercontent.com/24706517/210167548-59950894-8d1d-4f87-af0e-9b10341a1b51.png)
+![image](https://user-images.githubusercontent.com/24706517/210167554-24df2bdc-9132-4ff3-9e6e-219290f88f03.png)
+![image](https://user-images.githubusercontent.com/24706517/210167558-6dcca693-291d-443a-b7f4-dc52f2a3717a.png)
+
+### Test 9: Validasi sebelum nama item diganti
+![image](https://user-images.githubusercontent.com/24706517/210167574-b367c387-c296-426a-a20d-f976e9acc5ba.png)
+![image](https://user-images.githubusercontent.com/24706517/210167583-0de036b9-9f32-4380-83ac-0ceeb24ddde4.png)
+![image](https://user-images.githubusercontent.com/24706517/210167592-86360c7e-ab47-466f-81a7-1a897b382a0e.png)
+
+### Test 10: Validasi sebelum qty item diganti
+![image](https://user-images.githubusercontent.com/24706517/210167618-7b8df7fd-659b-4ad1-b289-7c03a69e9cf3.png)
+![image](https://user-images.githubusercontent.com/24706517/210167625-45149a4c-36eb-47e3-8424-864fc16e0e96.png)
+
+### Test 11: Validasi sebelum harga item diganti
+![image](https://user-images.githubusercontent.com/24706517/210167643-5ccfec0a-ba19-4051-91fd-18406ffc4038.png)
+![image](https://user-images.githubusercontent.com/24706517/210167653-14a92ad8-fe32-4185-bb45-665c3c0d6b9a.png)
 
 ## Kesimpulan
 - Super cashier adalah program sederhana yang membantu penjual untuk menjual produknya secara efektif dan efisien.
